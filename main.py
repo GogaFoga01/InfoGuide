@@ -64,7 +64,17 @@ def search_contacts(contacts):
 
 # Основной код
 def main():
-    filename = input('Выберите файла: ')
+   def main():
+    filename = input("Введите имя файла (по умолчанию contacts.csv): ")
+    if not filename:
+        filename = 'contacts.csv'
+    
+    if not os.path.exists(filename):
+        with open(filename, 'w', newline=''):
+            pass
+    
+    
+    contacts = load_contacts(filename)
     if os.path.exists(filename):
         contacts = load_contacts(filename)
 
